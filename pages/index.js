@@ -1,4 +1,5 @@
 import fetch from "node-fetch"
+import Link from "next/link"
 
 const api = "https://pomber.github.io/covid19/"
 const DATA = api + "timeseries.json"
@@ -22,10 +23,23 @@ export async function getStaticProps() {
   }
 }
 
-export default function HomePage({ date, rows }) {
+function Node(props) {
+  const { country } = props.data
   return (
-    <>
-      <h2>Coronavirus {date}</h2>
-    </>
+    <Link
+      href="/country/[name]"
+      as={`/country/${country}`}
+    >
+      <a>
+        {country}
+      </a>
+    </Link>
+  )
+}
+
+export default function HomePage({ date, rows }) {
+  console.log(rows)
+  return (
+    rows.map((row, index) => <Node key={index} data={row}></Node>)
   )
 }
