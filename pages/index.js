@@ -38,7 +38,6 @@ function Node(props) {
 }
 
 export default function HomePage({ date, rows }) {
-  console.log(rows)
   return (
     rows.map((row, index) => <Node key={index} data={row}></Node>)
   )
