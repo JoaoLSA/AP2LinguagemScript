@@ -35,7 +35,7 @@ export default function Country({ name, rows }) {
         data={rows}
         width={390}
         height={160}
-        keys={["deaths", "confirmed"]}
+        keys={["deaths", "confirmed", "recovered"]}
         offsetType="diverging"
         colors={{ scheme: "pastel1" }}
         enableGridX={false}
