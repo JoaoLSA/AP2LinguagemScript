@@ -1,24 +1,31 @@
+import fetch from "node-fetch"
+
 const api = "https://pomber.github.io/covid19/"
 const DATA = api + "timeseries.json"
 
-function useData() {
-  const [data, setData] = React.useState()
-  React.useEffect(() => {
-    fetch(DATA)
-      .then(response => response.json())
-      .then(data => setData(data))
-  }, [])
-  return data
-}
-
-export default function HomePage() {
-  const data = useData()
-  if (!data) {
-    return <h1>Loading...</h1>
-  }
+export async function getStaticProps() {
+  const response = await fetch(DATA)
+  const data = await response.json()
   const countries = Object.keys(data)
   const aCountry = data[countries[0]]
   const { date } = aCountry[aCountry.length - 1]
-  return <h2>Coronavirus {date}</h2>
+  const rows = countries
+    .map(country => {
+      const { deaths } = data[country].find(
+        r => r.date === date
+      )
+      return { country, deaths }
+    })
+    .filter(r => r.deaths > 8)
+  return {
+    props: { date, rows },
+  }
 }
 
+export default function HomePage({ date, rows }) {
+  return (
+    <>
+      <h2>Coronavirus {date}</h2>
+    </>
+  )
+}
