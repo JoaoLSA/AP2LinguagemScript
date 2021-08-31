@@ -1,5 +1,6 @@
 import fetch from "node-fetch"
 import Link from "next/link"
+import 'bootstrap/dist/css/bootstrap.css'
 
 const api = "https://pomber.github.io/covid19/"
 const DATA = api + "timeseries.json"
