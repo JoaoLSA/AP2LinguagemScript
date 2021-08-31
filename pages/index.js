@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import Link from "next/link";
+import Head from 'next/head';
 import "bootstrap/dist/css/bootstrap.css";
 
 const api = "https://pomber.github.io/covid19/";
@@ -35,8 +36,15 @@ function Node(props) {
 
 export default function HomePage({ date, rows }) {
   return (
-    <ul class="list-group">
-      {rows.map((row, index) => <Node key={index} data={row}></Node>)}
-    </ul>
+    <>
+      <Head>
+        <title>Covid-19 Charts</title>
+        <link rel="icon" href="/public/favicon.ico" />
+      </Head>
+      <h3>Country List</h3>
+      <ul className="list-group">
+        {rows.map((row, index) => <Node key={index} data={row}></Node>)}
+      </ul>
+    </>
   );
 }
