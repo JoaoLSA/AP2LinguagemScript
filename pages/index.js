@@ -1,45 +1,42 @@
-import fetch from "node-fetch"
-import Link from "next/link"
-import 'bootstrap/dist/css/bootstrap.css'
+import fetch from "node-fetch";
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.css";
 
-const api = "https://pomber.github.io/covid19/"
-const DATA = api + "timeseries.json"
+const api = "https://pomber.github.io/covid19/";
+const DATA = api + "timeseries.json";
 
 export async function getStaticProps() {
-  const response = await fetch(DATA)
-  const data = await response.json()
-  const countries = Object.keys(data)
-  const aCountry = data[countries[0]]
-  const { date } = aCountry[aCountry.length - 1]
+  const response = await fetch(DATA);
+  const data = await response.json();
+  const countries = Object.keys(data);
+  const aCountry = data[countries[0]];
+  const { date } = aCountry[aCountry.length - 1];
   const rows = countries
-    .map(country => {
-      const { deaths } = data[country].find(
-        r => r.date === date
-      )
-      return { country, deaths }
+    .map((country) => {
+      const { deaths } = data[country].find((r) => r.date === date);
+      return { country, deaths };
     })
-    .filter(r => r.deaths > 8)
+    .filter((r) => r.deaths > 8);
   return {
     props: { date, rows },
-  }
+  };
 }
 
 function Node(props) {
-  const { country } = props.data
+  const { country } = props.data;
   return (
-    <Link
-      href="/country/[name]"
-      as={`/country/${country}`}
-    >
-      <a>
-        {country}
-      </a>
-    </Link>
-  )
+    <li class="list-group-item">
+      <Link href="/country/[name]" as={`/country/${country}`}>
+        <a>{country}</a>
+      </Link>
+    </li>
+  );
 }
 
 export default function HomePage({ date, rows }) {
   return (
-    rows.map((row, index) => <Node key={index} data={row}></Node>)
-  )
+    <ul class="list-group">
+      {rows.map((row, index) => <Node key={index} data={row}></Node>)}
+    </ul>
+  );
 }
