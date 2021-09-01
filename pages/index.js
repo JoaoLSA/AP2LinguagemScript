@@ -41,7 +41,7 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
       data={data}
       width={390}
       height={160}
-      keys={[ 'hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut' ]}
+      keys={[ "deaths", "confirmed", "recovered" ]}
       indexBy="country"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
@@ -98,7 +98,7 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'food',
+          legend: 'cases',
           legendPosition: 'middle',
           legendOffset: -40
       }}
@@ -135,11 +135,11 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
 const data = [
   {
     "country": "AD",
-    "hot dog": 137,
+    "deaths": 137,
     "hot dogColor": "hsl(179, 70%, 50%)",
-    "burger": 49,
+    "confirmed": 49,
     "burgerColor": "hsl(314, 70%, 50%)",
-    "sandwich": 15,
+    "recovered": 15,
     "sandwichColor": "hsl(259, 70%, 50%)",
     "kebab": 185,
     "kebabColor": "hsl(112, 70%, 50%)",
@@ -150,11 +150,11 @@ const data = [
   },
   {
     "country": "AE",
-    "hot dog": 192,
+    "deaths": 192,
     "hot dogColor": "hsl(212, 70%, 50%)",
-    "burger": 79,
+    "confirmed": 79,
     "burgerColor": "hsl(256, 70%, 50%)",
-    "sandwich": 13,
+    "recovered": 13,
     "sandwichColor": "hsl(185, 70%, 50%)",
     "kebab": 74,
     "kebabColor": "hsl(254, 70%, 50%)",
@@ -165,11 +165,11 @@ const data = [
   },
   {
     "country": "AF",
-    "hot dog": 140,
+    "deaths": 140,
     "hot dogColor": "hsl(243, 70%, 50%)",
-    "burger": 123,
+    "confirmed": 123,
     "burgerColor": "hsl(356, 70%, 50%)",
-    "sandwich": 141,
+    "recovered": 141,
     "sandwichColor": "hsl(105, 70%, 50%)",
     "kebab": 110,
     "kebabColor": "hsl(61, 70%, 50%)",
@@ -180,11 +180,11 @@ const data = [
   },
   {
     "country": "AG",
-    "hot dog": 56,
+    "deaths": 56,
     "hot dogColor": "hsl(304, 70%, 50%)",
-    "burger": 200,
+    "confirmed": 200,
     "burgerColor": "hsl(239, 70%, 50%)",
-    "sandwich": 65,
+    "recovered": 65,
     "sandwichColor": "hsl(314, 70%, 50%)",
     "kebab": 147,
     "kebabColor": "hsl(336, 70%, 50%)",
@@ -195,11 +195,11 @@ const data = [
   },
   {
     "country": "AI",
-    "hot dog": 180,
+    "deaths": 180,
     "hot dogColor": "hsl(197, 70%, 50%)",
-    "burger": 80,
+    "confirmed": 80,
     "burgerColor": "hsl(124, 70%, 50%)",
-    "sandwich": 157,
+    "recovered": 157,
     "sandwichColor": "hsl(4, 70%, 50%)",
     "kebab": 168,
     "kebabColor": "hsl(257, 70%, 50%)",
@@ -210,11 +210,11 @@ const data = [
   },
   {
     "country": "AL",
-    "hot dog": 128,
+    "deaths": 128,
     "hot dogColor": "hsl(212, 70%, 50%)",
-    "burger": 122,
+    "confirmed": 122,
     "burgerColor": "hsl(50, 70%, 50%)",
-    "sandwich": 136,
+    "recovered": 136,
     "sandwichColor": "hsl(102, 70%, 50%)",
     "kebab": 38,
     "kebabColor": "hsl(239, 70%, 50%)",
@@ -225,11 +225,11 @@ const data = [
   },
   {
     "country": "AM",
-    "hot dog": 166,
+    "deaths": 166,
     "hot dogColor": "hsl(108, 70%, 50%)",
-    "burger": 26,
+    "confirmed": 26,
     "burgerColor": "hsl(220, 70%, 50%)",
-    "sandwich": 110,
+    "recovered": 110,
     "sandwichColor": "hsl(251, 70%, 50%)",
     "kebab": 132,
     "kebabColor": "hsl(215, 70%, 50%)",
