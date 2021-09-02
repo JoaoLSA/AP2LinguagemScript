@@ -1,0 +1,12 @@
+Servidor escrito em Node.js que fornece uma página web básica com uma calculadora que retorna
+o valor digitado ao quadrado
+
+Execução:
+    1- Verifique que você tem o node.js instalado (testado na versão v14.16.1)
+        https://nodejs.org/en/
+    2- Instale os pacotes necessários
+        yarn install (ou npm install)
+    3- Após isso basta executar o comando abaixo
+        yarn dev (ou npm dev)
+    4- Acesse o seu navegador de preferência e cole o seguinte endereço na barra de pesquisa:
+        http://localhost:3000/

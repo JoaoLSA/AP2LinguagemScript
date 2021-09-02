@@ -33,8 +33,8 @@ export default function Country({ name, rows }) {
       </h1>
       <Stream
         data={rows}
-        width={390}
-        height={160}
+        width={920}
+        height={500}
         keys={["deaths", "confirmed", "recovered"]}
         offsetType="diverging"
         colors={{ scheme: "pastel1" }}
